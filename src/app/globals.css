@@ -1,0 +1,83 @@
+body {
+  margin: 0px;
+  box-sizing: border-box;
+}
+.section{
+  width: 100%;
+}
+
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
+.menu{
+  display: flex;
+}
+.section__main, .section__content{
+  background:rgba(33, 32, 32, 1);
+  padding-top: 7px;
+}
+.nav{
+  margin-right: 20px;
+  text-decoration: none;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 22px;
+  float: right;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.nav_main{
+  color: #FFF;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 25px;
+  margin-right: 1050px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.testblock{
+  display: flex;
+  padding: 49px 0px 73px 0px;
+
+}
+.block1 h1{
+  color: #FFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.block1 h2{
+  color: rgba(179, 56, 96, 0.80);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Montserrat;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.block2 img{
+  width: 542px;
+  height: 465px;
+}
+.card{
+  display: flex;
+  padding: 74px 0px;
+  justify-content: center;
+}
+.section__cat{
+  background: #19181A;
+}
+.cards{
+  width: 357px;
+  height: 402px;
+  margin-right: 30px;
+  border-radius: 20px;
+  background: rgba(150, 51, 83, 0.50);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
