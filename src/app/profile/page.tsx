@@ -1,15 +1,18 @@
 "use client";
 
 import React from 'react';
-import LogoutMenu from './main'; // Путь к компоненту LogoutMenu
-
+import LogoutMenu from './menu'; // Путь к компоненту LogoutMenu
+import ProfileEdit from './main'
 export default function Page() {
   // ... ваш код
   
   return (
-
-        <LogoutMenu />
+    <div>
+       <LogoutMenu />
+        <ProfileEdit />
         
+    </div>
+      
     
   );
 }

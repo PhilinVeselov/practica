@@ -1,15 +1,10 @@
-"use client";
-
 import React from 'react';
-import LogoutMenu from './main'; // Путь к компоненту LogoutMenu
+import LoginForm from './main'; // Путь к вашему компоненту LoginForm
 
-export default function Page() {
-  // ... ваш код
-  
+export default function App() {
   return (
-
-        <LogoutMenu />
-        
-    
+    <LoginForm />
   );
 }
+
+

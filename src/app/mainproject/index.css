@@ -61,3 +61,36 @@ input{
     margin: 20px auto;
     padding: 5px;
 }
+
+.project-card {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+.project-card select {
+  padding: 5px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.project-card button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.project-card button:hover {
+  background-color: #2980b9;
+}

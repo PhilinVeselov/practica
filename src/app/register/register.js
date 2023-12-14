@@ -4,41 +4,42 @@ import { useState } from 'react';
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
-    login: '',
     email: '',
-    password: '',
-    password_dub: '',
     fname: '',
     lname: '',
-    city: '',
-    mobile: '',
+    password: '',
   });
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [error, setError] = useState(null); // Состояние для хранения сообщений об ошибках
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await fetch('http://77.73.69.213:5000/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          "Почта": formData.email,
+          "Имя": formData.fname,
+          "Фамилия": formData.lname,
+          "Пароль": formData.password
+        }),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
+        // Устанавливаем сообщение об ошибке в состояние
+        setError(errorData.message);
         throw new Error(errorData.message);
       }
 
       const data = await response.json();
-      // Обработка успешной регистрации
       console.log(data);
-       // Если регистрация успешна, устанавливаем состояние успешной регистрации
-       setRegistrationSuccess(true);
+      setRegistrationSuccess(true);
     } catch (error) {
-      // Обработка ошибок при регистрации
       console.error(error.message);
     }
   };
@@ -49,31 +50,27 @@ function RegistrationForm() {
       ...formData,
       [name]: value,
     });
+    // Сбрасываем сообщение об ошибке при изменении данных в форме
+    setError(null);
   };
 
   return (
     <div className="section__regis section">
       <div className="container">
-        
         {!registrationSuccess ? (
           <div className='bloc'>
             <form onSubmit={handleSubmit}>
-              <input type="text" name="login" value={formData.login} onChange={handleChange} placeholder="Логин" />
               <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
-              <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Пароль" />
-              <input type="password" name="password_dub" value={formData.password_dub} onChange={handleChange} placeholder="Повторите пароль" />
               <input type="text" name="fname" value={formData.fname} onChange={handleChange} placeholder="Имя" />
               <input type="text" name="lname" value={formData.lname} onChange={handleChange} placeholder="Фамилия" />
-              <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="Город" />
-              <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} placeholder="Номер телефона" />
+              <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Пароль" />
               <button type="submit">Зарегистрироваться</button>
             </form>
+            {error && <p>{error}</p>} {/* Отображение сообщения об ошибке */}
           </div>
-          
         ) : (
           <div>
             <p>Регистрация прошла успешно!</p>
-            {/* Дополнительные действия после успешной регистрации */}
           </div>
         )}
       </div>
