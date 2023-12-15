@@ -1,83 +1,116 @@
-body {
-  margin: 0px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-}
-.section{
-  width: 100%;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.container{
-  width: 80%;
-  margin: 0 auto;
+body{
+  background-color: #212020;
 }
-.menu{
+
+.section__content{
+  padding: 5% 7%;
   display: flex;
+  justify-content: space-between;
 }
-.section__main, .section__content{
-  background:rgba(33, 32, 32, 1);
-  padding-top: 7px;
+
+.content__text{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
 }
-.nav{
-  margin-right: 20px;
-  text-decoration: none;
-  color: #FFF;
-  font-family: Montserrat;
-  font-size: 22px;
-  float: right;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-.nav_main{
-  color: #FFF;
-  text-decoration: none;
-  font-family: Montserrat;
-  font-size: 25px;
-  margin-right: 1050px;
-  font-style: normal;
+.content__text h1{
+  font-size: 50px;
   font-weight: 700;
-  line-height: normal;
-}
-.testblock{
-  display: flex;
-  padding: 49px 0px 73px 0px;
-
-}
-.block1 h1{
   color: #FFF;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Montserrat;
+}
+.content__text h2{
   font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.block1 h2{
-  color: rgba(179, 56, 96, 0.80);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Montserrat;
-  font-size: 22px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  color: rgba(150, 51, 83, 0.5);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.block2 img{
-  width: 542px;
-  height: 465px;
+
+.content__img{
+  width: 550px;
+  height: 460px;
 }
-.card{
+
+.section__about{
+  padding: 5% 7%;
   display: flex;
-  padding: 74px 0px;
+  justify-content: space-between;
+  background-color: #19181A;
+}
+
+.about__card{
+  display: flex;
   justify-content: center;
-}
-.section__cat{
-  background: #19181A;
-}
-.cards{
-  width: 357px;
-  height: 402px;
-  margin-right: 30px;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+  height: 400px;
+  width: 360px;
   border-radius: 20px;
-  background: rgba(150, 51, 83, 0.50);
+  background-color: rgba(150, 51, 83, 0.5);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 30px;
+  color: #fff;
+}
+
+.card__icon{
+  color: #fff;
+  font-size: 150px
+}
+
+.section__propose{
+  padding: 5% 7%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.section__propose h1{
+  font-size: 50px;
+  color: #fff;
+}
+
+.propose__form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.propose__form input[type=text], select, textarea {
+  margin-top: 2%;
+  padding: 12px;
+  width: 70%;
+  background-color: rgba(150, 51, 83, 0.5);
+  border: 1px solid rgba(150, 51, 83, 0.5);
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  font-size: 30px;
+  color: #fff;
+}
+
+.propose__form button[type=submit] {
+  margin-top: 2%;
+  padding: 2%;
+  background-color: rgba(49, 56, 83, 0.8);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  width: 45%;
+}
+
+.propose__form button[type=submit]:hover {
+  background-color: rgba(38, 44, 65, 0.8);
 }

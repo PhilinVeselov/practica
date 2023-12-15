@@ -1,6 +1,7 @@
-"use client";
-
-import { useState } from 'react';
+import React, { useState } from 'react';
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -10,7 +11,7 @@ function RegistrationForm() {
     password: '',
   });
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [error, setError] = useState(null); // Состояние для хранения сообщений об ошибках
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,13 +32,10 @@ function RegistrationForm() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        // Устанавливаем сообщение об ошибке в состояние
         setError(errorData.message);
         throw new Error(errorData.message);
       }
 
-      const data = await response.json();
-      console.log(data);
       setRegistrationSuccess(true);
     } catch (error) {
       console.error(error.message);
@@ -50,29 +48,29 @@ function RegistrationForm() {
       ...formData,
       [name]: value,
     });
-    // Сбрасываем сообщение об ошибке при изменении данных в форме
     setError(null);
   };
 
   return (
-    <div className="section__regis section">
+    <div className="section__reg">
       <div className="container">
         {!registrationSuccess ? (
-          <div className='bloc'>
-            <form onSubmit={handleSubmit}>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
-              <input type="text" name="fname" value={formData.fname} onChange={handleChange} placeholder="Имя" />
-              <input type="text" name="lname" value={formData.lname} onChange={handleChange} placeholder="Фамилия" />
-              <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Пароль" />
+          <form className='reg__form' onSubmit={handleSubmit}>
+            <FontAwesomeIcon className="card__icon" icon={faUserPlus}></FontAwesomeIcon>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
+            <input type="text" name="fname" value={formData.fname} onChange={handleChange} placeholder="Имя" />
+            <input type="text" name="lname" value={formData.lname} onChange={handleChange} placeholder="Фамилия" />
+            <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Пароль" />
+            <div className='form__buttons'>
               <button type="submit">Зарегистрироваться</button>
-            </form>
-            {error && <p>{error}</p>} {/* Отображение сообщения об ошибке */}
-          </div>
+            </div>
+          </form>
         ) : (
           <div>
             <p>Регистрация прошла успешно!</p>
           </div>
         )}
+        {error && <p>{error}</p>}
       </div>
     </div>
   );

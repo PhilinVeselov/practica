@@ -1,11 +1,15 @@
 "use client";
-
+// Page.js
 import React, { useState } from 'react';
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
+import HeaderHandleLogout from '../../components/headerHandleLogout/headerHandleLogout';
 import RegistrationForm from './register.js';
-import Loginnform from './login.js';
+import LoginForm from './login.js';
 
 export default function Page() {
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const handleShowRegistration = () => {
     setShowRegistrationForm(true);
@@ -15,31 +19,23 @@ export default function Page() {
     setShowRegistrationForm(false);
   };
 
-  const redirectToOtherPage = () => {
-    // Ваша логика перенаправления на другую страницу
-    // Например:
-    // history.push('/otherPage');
-    console.log('Redirecting to other page...');
-  };
-
   return (
-    <div className="section__main section">
-      <div className="container">
-        <div className="menu">
-          <nav><a className="nav_main" href="/">237#</a></nav>
-          <nav><a className="nav" href="">О нас</a></nav>
-          <nav><a className="nav" href="">Поиск проекта</a></nav>
-          <nav><a className="nav" href="">Войти</a></nav>
+    <div>
+      {isUserLoggedIn ? <HeaderHandleLogout /> : <Header />}
+      {!isUserLoggedIn && (
+        <div className="auth-buttons">
+          <button onClick={handleShowLogin}>Войти</button>
+          <button onClick={handleShowRegistration}>Зарегистрироваться</button>
         </div>
-
-        {showRegistrationForm ? <RegistrationForm /> : <Loginnform redirectToOtherPage={redirectToOtherPage} />}
-
-        <div className="tests">
-          <a className='test' onClick={handleShowLogin}>Войти</a>
-          <a className='test' onClick={handleShowRegistration}>Зарегистрироваться</a>
-        </div>
-      </div>
+      )}
+      {isUserLoggedIn ? (
+        <div>Содержимое для авторизованных пользователей</div>
+      ) : showRegistrationForm ? (
+        <RegistrationForm />
+      ) : (
+        <LoginForm setLoginSuccess={setIsUserLoggedIn} />
+      )}
+      <Footer />
     </div>
-    
   );
 }

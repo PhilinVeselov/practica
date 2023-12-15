@@ -15,12 +15,16 @@ export default function Page() {
   };
 
   return (
-    <div className="section__main section">
+   <div className="section__main">
       <div className="container">
             <button onClick={handleShowLogin}>Войти</button>
             <button onClick={handleShowRegistration}>Зарегистрироваться</button>
       </div>
-      {showRegistrationForm ? <RegistrationForm /> : <LoginForm />}
+      {showRegistrationForm ? (
+        <RegistrationForm />
+      ) : (
+        <LoginForm />
+      )}
     </div>
   );
 }

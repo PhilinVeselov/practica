@@ -1,0 +1,22 @@
+.section__header{
+    padding: 1% 3%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .header__logo{
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 700;
+  }
+  
+  .header__menu{
+    display: flex;
+    gap: 30px;
+  }
+  .header__menu a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px;
+  }

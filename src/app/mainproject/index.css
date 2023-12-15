@@ -94,3 +94,54 @@ input{
 .project-card button:hover {
   background-color: #2980b9;
 }
+
+
+.edit-project-modal {
+  position: fixed; /* Фиксированное позиционирование относительно окна браузера */
+  top: 50%; /* Центрирование по вертикали */
+  left: 50%; /* Центрирование по горизонтали */
+  transform: translate(-50%, -50%); /* Дополнительное центрирование */
+  z-index: 1000; /* Убедитесь, что модальное окно выше других элементов */
+  background-color: white; /* Фон модального окна */
+  padding: 20px; /* Внутренние отступы */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для лучшей видимости */
+  /* Другие стили по желанию */
+  width: 800px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  z-index: 500; /* Меньше, чем у .edit-project-modal */
+}
+
+.test22{
+  display: flex;
+}
+
+.section__header{
+  padding: 1% 3%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo{
+color: #fff;
+text-decoration: none;
+font-size: 25px;
+font-weight: 700;
+}
+
+.header__menu{
+display: flex;
+gap: 30px;
+}
+.header__menu a{
+color: #fff;
+text-decoration: none;
+font-size: 22px;
+}
